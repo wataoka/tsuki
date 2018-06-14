@@ -6,7 +6,7 @@ from PIL import Image
 
 from utils import load_tsuki_matrix, preprocess, index2tsuki
 
-IMAGE_URL = "./images/nike.png"
+IMAGE_URL = "./images/usa.png"
 
 
 if __name__ == "__main__":
