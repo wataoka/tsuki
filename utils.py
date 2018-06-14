@@ -95,7 +95,7 @@ def preprocess(img_file):
     img = img.convert('L')
 
 
-    width = 300
+    width = 600
     height = int(width*(img.height/img.width))
     height -= height%4
 
