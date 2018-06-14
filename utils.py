@@ -58,6 +58,13 @@ def load_tsuki_matrix():
 
 
 def index2tsuki(index):
+    """
+    indexから絵文字対応する絵文字を返す関数
+    Args:
+        index
+    Return:
+        絵文字
+    """
     if index==0:
         return emoji.emojize(':new_moon:', use_aliases=True)
     if index==1:
@@ -77,13 +84,18 @@ def index2tsuki(index):
 
 
 def preprocess(img_file):
-
-
+    """
+    画像の前処理。グレスケール、画質下げ、その他前処理。
+    Args:
+        img_file: 画像のパス
+    Return:
+        img: 前処理が完了したnumpyの行列
+    """
     img = Image.open(img_file)
     img = img.convert('L')
 
 
-    width = 200
+    width = 300
     height = int(width*(img.height/img.width))
     height -= height%4
 
