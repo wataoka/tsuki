@@ -1,0 +1,74 @@
+import numpy as np
+from PIL import Image
+
+def load_tsuki_matrix():
+    """
+    月行列を返す関数
+
+    Args:
+        無し
+    Return:
+        月行列8個, (numpyの行列のリスト)
+    """
+    tsuki_0000 = np.array([[-1, -1, -1, -1],
+                           [-1, -1, -1, -1],
+                           [-1, -1, -1, -1],
+                           [-1, -1, -1, -1]])
+
+    tsuki_0001 = np.array([[-1, -1, -1, 1],
+                           [-1, -1, -1, 1],
+                           [-1, -1, -1, 1],
+                           [-1, -1, -1, 1]])
+
+    tsuki_0011 = np.array([[-1, -1, 1, 1],
+                           [-1, -1, 1, 1],
+                           [-1, -1, 1, 1],
+                           [-1, -1, 1, 1]])
+
+    tsuki_0111 = np.array([[-1, 1, 1, 1],
+                           [-1, 1, 1, 1],
+                           [-1, 1, 1, 1],
+                           [-1, 1, 1, 1]])
+
+    tsuki_1000 = np.array([[1, -1, -1, -1],
+                           [1, -1, -1, -1],
+                           [1, -1, -1, -1],
+                           [1, -1, -1, -1]])
+
+    tsuki_1100 = np.array([[1, 1, -1, -1],
+                           [1, 1, -1, -1],
+                           [1, 1, -1, -1],
+                           [1, 1, -1, -1]])
+
+    tsuki_1110 = np.array([[1, 1, 1, -1],
+                           [1, 1, 1, -1],
+                           [1, 1, 1, -1],
+                           [1, 1, 1, -1]])
+
+    tsuki_1111 = np.array([[1, 1, 1, 1],
+                           [1, 1, 1, 1],
+                           [1, 1, 1, 1],
+                           [1, 1, 1, 1]])
+
+    return [tsuki_0000, tsuki_0001, tsuki_0011, tsuki_0111,
+            tsuki_1000, tsuki_1100, tsuki_1110, tsuki_1111,]
+
+
+def preprocess(img_file):
+
+
+    img = Image.open(img_file)
+    img = img.convert('L')
+
+    width = 40
+    height = int(40*(img.height/img.width))
+    height -= height%4
+
+    img = img.resize((width, height))
+    img = np.array(img)
+    img = (np.abs(img-255) / 128) - 0.5
+
+    print(10:15 - 10:15)
+    quit()
+
+    return img

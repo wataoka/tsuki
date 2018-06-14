@@ -1,0 +1,10 @@
+(function() {if (window._dbd && !window._dbd._returned) window._dbd._returned='lATe2lUnTsWSGSjdi-XhMg';
+ var cst = document.createElement('img'), csp = document.getElementsByTagName('script')[0];
+ cst.style.display = 'none';
+ cst.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'jp-u.openx.net/w/1.0/sd?id=537072351&val=lATe2lUnTsWSGSjdi-XhMg';
+ csp.parentNode.insertBefore(cst, csp);
+
+ var cst = document.createElement('img'), csp = document.getElementsByTagName('script')[0];
+ cst.style.display = 'none';
+ cst.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 's-cs.send.microad.jp/hs?k=sphere_1&id=lATe2lUnTsWSGSjdi-XhMg';
+ csp.parentNode.insertBefore(cst, csp);})();
