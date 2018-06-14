@@ -6,12 +6,13 @@ from PIL import Image
 
 from utils import load_tsuki_matrix, preprocess, index2tsuki
 
+IMAGE_URL = "./images/apple.png"
 
 
 if __name__ == "__main__":
     tsuki_matrixs = load_tsuki_matrix()
 
-    img = preprocess("./apple.png")
+    img = preprocess(IMAGE_URL)
 
     tsuki_list = []
 
