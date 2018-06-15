@@ -101,7 +101,7 @@ def preprocess(img_file):
 
     img = img.resize((width, height))
     img = np.matrix(img)
-    img = ((np.abs(img-255.) / 128.) - 1.0) * (-1)
+    img = (img/128.) - 1.
 
 
     return img
