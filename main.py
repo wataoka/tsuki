@@ -3,7 +3,6 @@
 import sys
 import argparse
 import numpy as np
-from PIL import Image
 
 from utils import load_tsuki_matrixs, preprocess, index2tsuki
 
