@@ -1,17 +1,25 @@
 # -*- coding: utf-8 -*- #
 
 import sys
+import argparse
 import numpy as np
 from PIL import Image
 
-from utils import load_tsuki_matrix, preprocess, index2tsuki
+from utils import load_tsuki_matrixs, preprocess, index2tsuki
+
+
 
 IMAGE_URL = "./images/wataoka.jpeg"
 
-
 if __name__ == "__main__":
-    tsuki_matrixs = load_tsuki_matrix()
-    img = preprocess(IMAGE_URL)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--path", default="./images/apple.png", type=str)
+    parser.add_argument("--col", default="50", type=int)
+    args = parser.parse_args()
+
+    tsuki_matrixs = load_tsuki_matrixs()
+    img = preprocess(args.path, args.col)
 
     tsuki_list = []
 
@@ -21,18 +29,13 @@ if __name__ == "__main__":
             col = 4*j
             max = -10000
             max_tk = 0
-
             for n, tk in enumerate(tsuki_matrixs):
                 hadamard = np.multiply(img[row:row+4, col:col+4], tk)
-
                 if max < hadamard.sum():
                     max_index = n
                     max = hadamard.sum()
-
             tsuki_list.append(index2tsuki(max_index))
         tsuki_list.append('\n')
-
-
 
     for i in tsuki_list:
         sys.stdout.write(i)

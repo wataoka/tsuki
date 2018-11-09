@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*- #
-
 import emoji
 import numpy as np
 from PIL import Image
 
-def load_tsuki_matrix():
+def load_tsuki_matrixs():
     """
     月行列を返す関数
 
@@ -13,48 +12,48 @@ def load_tsuki_matrix():
     Return:
         月行列8個, (numpyの行列のリスト)
     """
-    tsuki_0000 = np.matrix([[-1, -1, -1, -1],
-                            [-1, -1, -1, -1],
-                            [-1, -1, -1, -1],
-                            [-1, -1, -1, -1]])
+    tsuki_0 = np.matrix([[-1, -1, -1, -1],
+                        [-1, -1, -1, -1],
+                        [-1, -1, -1, -1],
+                        [-1, -1, -1, -1]])
 
-    tsuki_0001 = np.matrix([[-1, -1, -1, 1],
-                            [-1, -1, -1, 1],
-                            [-1, -1, -1, 1],
-                            [-1, -1, -1, 1]])
+    tsuki_1 = np.matrix([[-1, -1, -1, 1],
+                        [-1, -1, -1, 1],
+                        [-1, -1, -1, 1],
+                        [-1, -1, -1, 1]])
 
-    tsuki_0011 = np.matrix([[-1, -1, 1, 1],
-                            [-1, -1, 1, 1],
-                            [-1, -1, 1, 1],
-                            [-1, -1, 1, 1]])
+    tsuki_2 = np.matrix([[-1, -1, 1, 1],
+                        [-1, -1, 1, 1],
+                        [-1, -1, 1, 1],
+                        [-1, -1, 1, 1]])
 
-    tsuki_0111 = np.matrix([[-1, 1, 1, 1],
-                            [-1, 1, 1, 1],
-                            [-1, 1, 1, 1],
-                            [-1, 1, 1, 1]])
+    tsuki_3 = np.matrix([[-1, 1, 1, 1],
+                        [-1, 1, 1, 1],
+                        [-1, 1, 1, 1],
+                        [-1, 1, 1, 1]])
 
-    tsuki_1000 = np.matrix([[1, -1, -1, -1],
-                            [1, -1, -1, -1],
-                            [1, -1, -1, -1],
-                            [1, -1, -1, -1]])
+    tsuki_4 = np.matrix([[1, -1, -1, -1],
+                        [1, -1, -1, -1],
+                        [1, -1, -1, -1],
+                        [1, -1, -1, -1]])
 
-    tsuki_1100 = np.matrix([[1, 1, -1, -1],
-                            [1, 1, -1, -1],
-                            [1, 1, -1, -1],
-                            [1, 1, -1, -1]])
+    tsuki_5 = np.matrix([[1, 1, -1, -1],
+                        [1, 1, -1, -1],
+                        [1, 1, -1, -1],
+                        [1, 1, -1, -1]])
 
-    tsuki_1110 = np.matrix([[1, 1, 1, -1],
-                            [1, 1, 1, -1],
-                            [1, 1, 1, -1],
-                            [1, 1, 1, -1]])
+    tsuki_6 = np.matrix([[1, 1, 1, -1],
+                        [1, 1, 1, -1],
+                        [1, 1, 1, -1],
+                        [1, 1, 1, -1]])
 
-    tsuki_1111 = np.matrix([[1, 1, 1, 1],
-                            [1, 1, 1, 1],
-                            [1, 1, 1, 1],
-                            [1, 1, 1, 1]])
+    tsuki_7 = np.matrix([[1, 1, 1, 1],
+                        [1, 1, 1, 1],
+                        [1, 1, 1, 1],
+                        [1, 1, 1, 1]])
 
-    return [tsuki_0000, tsuki_0001, tsuki_0011, tsuki_0111,
-            tsuki_1000, tsuki_1100, tsuki_1110, tsuki_1111,]
+    return [tsuki_0, tsuki_1, tsuki_2, tsuki_3,
+            tsuki_4, tsuki_5, tsuki_6, tsuki_7]
 
 
 def index2tsuki(index):
@@ -83,25 +82,24 @@ def index2tsuki(index):
         return emoji.emojize(':full_moon:', use_aliases=True)
 
 
-def preprocess(img_file):
+def preprocess(path, col):
     """
     画像の前処理。グレスケール、画質下げ、その他前処理。
     Args:
-        img_file: 画像のパス
+        path: 画像のパス
+        col: 月の列の数
     Return:
         img: 前処理が完了したnumpyの行列
     """
-    img = Image.open(img_file)
+    img = Image.open(path)
     img = img.convert('L')
 
-
-    width = 400
+    width = col*4
     height = int(width*(img.height/img.width))
     height -= height%4
 
     img = img.resize((width, height))
     img = np.matrix(img)
     img = (img/128.) - 1.
-
 
     return img
