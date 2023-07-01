@@ -38,4 +38,3 @@ if __name__ == "__main__":
 
     for i in tsuki_list:
         sys.stdout.write(i)
-

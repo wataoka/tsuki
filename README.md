@@ -24,7 +24,7 @@ pip install pillow
 ![terminal](https://github.com/wataoka/tsuki/blob/master/images/terminal.png)
 
 ## パラメータ
-このプログラムではコマンドライン引数を与えることができます。  
+このプログラムではコマンドライン引数を与えることができます。
 
 コマンドライン引数の種類は以下です。
 
