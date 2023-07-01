@@ -65,21 +65,21 @@ def index2tsuki(index):
         絵文字
     """
     if index==0:
-        return emoji.emojize(':new_moon:', use_aliases=True)
+        return emoji.emojize(':new_moon:')
     if index==1:
-        return emoji.emojize(':waxing_crescent_moon:', use_aliases=True)
+        return emoji.emojize(':waxing_crescent_moon:')
     if index==2:
-        return emoji.emojize(':first_quarter_moon:', use_aliases=True)
+        return emoji.emojize(':first_quarter_moon:')
     if index==3:
-        return emoji.emojize(':waxing_gibbous_moon:', use_aliases=True)
+        return emoji.emojize(':waxing_gibbous_moon:')
     if index==4:
-        return emoji.emojize(':waning_crescent_moon:', use_aliases=True)
+        return emoji.emojize(':waning_crescent_moon:')
     if index==5:
-        return emoji.emojize(':last_quarter_moon:', use_aliases=True)
+        return emoji.emojize(':last_quarter_moon:')
     if index==6:
-        return emoji.emojize(':waning_gibbous_moon:', use_aliases=True)
+        return emoji.emojize(':waning_gibbous_moon:')
     else:
-        return emoji.emojize(':full_moon:', use_aliases=True)
+        return emoji.emojize(':full_moon:')
 
 
 def preprocess(path, col):
